@@ -1,0 +1,26 @@
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.RowConstraints?>
+<GridPane fx:id="shapeGridpane"
+          xmlns:fx="http://javafx.com/fxml"
+          fx:controller="com.softpath.riverpath.controller.RectangleBoundaryController"
+          stylesheets="@style.css">
+
+    <columnConstraints>
+        <ColumnConstraints hgrow="SOMETIMES" prefWidth="140.0" maxWidth="140.0"/>
+        <ColumnConstraints hgrow="SOMETIMES" prefWidth="100.0"/>
+    </columnConstraints>
+    <rowConstraints>
+        <RowConstraints minHeight="10.0" vgrow="SOMETIMES"/>
+        <RowConstraints minHeight="10.0" vgrow="SOMETIMES"/>
+    </rowConstraints>
+
+    <Label fx:id="rectangleWidthLabel" text="Width" GridPane.rowIndex="0"/>
+    <Label fx:id="rectangleHeightLabel" text="Height" GridPane.rowIndex="1"/>
+    <TextField fx:id="rectangleWidth" promptText="Width" onKeyReleased="#handleKeyReleased" GridPane.columnIndex="1"
+               GridPane.rowIndex="0"/>
+    <TextField fx:id="rectangleHeight" promptText="Height" onKeyReleased="#handleKeyReleased" GridPane.columnIndex="1"
+               GridPane.rowIndex="1"/>
+</GridPane>

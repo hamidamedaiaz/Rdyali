@@ -1,0 +1,34 @@
+{ Lanceur= CFD } 
+
+{ CFD=
+    { Type= ModeleDeModeles }
+    { Dependance=  
+        { Maillage= MaillagePrincipal }
+		{ Modele= Increments } 			 
+	}
+}
+
+Maillage
+{ Fichier4: Maillage/MetriqueGenerale.mtc }
+{ Fichier7: Maillage/adaptation.mtc }
+{ Fichier16: Maillage/Associateur.mtc }
+{ Fichier9: Maillage/maillage.mtc }
+{ Fichier23: Maillage/DeLaFonction.mtc }
+
+Geometrie
+{ Fichier14: Geometrie/Geometres.mtc }
+{ Fichier166: Geometrie/GeometresE.mtc }
+
+Solveur
+{ Fichier3: Solveur/Mecanique.mtc }
+{ Fichier5: Solveur/CLMecanique.mtc }
+
+IO	
+{ Fichier8: IO/output.mtc }
+{ Fichier1: IO/Parametres.mtc }
+{ Fichier17: IO/Interacteur.mtc }
+{ Fichier10: Increments/increments.mtc }
+{ Fichier6: Increments/temps.mtc }
+
+DragLift
+{ Fichier6: DragLift/DragLift.mtc }

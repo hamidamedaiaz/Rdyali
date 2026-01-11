@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.SplitPane?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.RowConstraints?>
+<SplitPane xmlns:fx="http://javafx.com/fxml"
+           fx:id="projectSetupPane"
+           dividerPositions="0.5358293075684379" maxWidth="400.0" minHeight="200.0" minWidth="100.0"
+           orientation="VERTICAL"
+           fx:controller="com.softpath.riverpath.controller.ProjectSetupController"
+           stylesheets="@style.css">
+    <GridPane fx:id="newProjectGridPanel" maxHeight="300.0" minHeight="300.0">
+        <columnConstraints>
+            <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0"/>
+        </columnConstraints>
+        <rowConstraints>
+            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES"/>
+            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES"/>
+            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES"/>
+            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES"/>
+            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES"/>
+            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES"/>
+            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES"/>
+            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES"/>
+        </rowConstraints>
+        <Button fx:id="importMSHButton" maxHeight="${newProjectGridPanel.height}"
+                maxWidth="${newProjectGridPanel.width}" onAction="#importGmeshFile" text="Import mesh file"/>
+        <Button fx:id="boundaryButton" disable="true" maxHeight="${newProjectGridPanel.height}"
+                maxWidth="${newProjectGridPanel.width}" onAction="#handleBoundaries" text="Define boundary"
+                GridPane.rowIndex="1"/>
+        <Button fx:id="conditionButton" disable="true" maxHeight="${newProjectGridPanel.height}"
+                maxWidth="${newProjectGridPanel.width}" onAction="#handleBoundaryCondition"
+                text="Define boundary condition" GridPane.rowIndex="2"/>
+        <Button fx:id="dataEngineeringButton" disable="true" maxHeight="${newProjectGridPanel.height}"
+                maxWidth="${newProjectGridPanel.width}" onAction="#handleDataEngineering"
+                text="Engineering data" GridPane.rowIndex="3"/>
+        <Button fx:id="timeDiscretizationButton" disable="true" maxHeight="${newProjectGridPanel.height}"
+                maxWidth="${newProjectGridPanel.width}" onAction="#handleTimeDiscretization" text="Time discretization"
+                GridPane.rowIndex="4"/>
+        <Button fx:id="meshingParametersButton" disable="true" maxHeight="${newProjectGridPanel.height}"
+                maxWidth="${newProjectGridPanel.width}" onAction="#handleMeshingParameters"
+                text="Meshing parameters" GridPane.rowIndex="5"/>
+        <Button fx:id="runConfigurationButton" disable="true" maxHeight="${newProjectGridPanel.height}"
+                maxWidth="${newProjectGridPanel.width}" onAction="#handleRunConfiguration" text="Run configuration"
+                GridPane.rowIndex="6"/>
+        <Button fx:id="runButton" disable="true" maxHeight="${newProjectGridPanel.height}"
+                maxWidth="${newProjectGridPanel.width}" onAction="#handleRun" text="Run"
+                GridPane.rowIndex="8"/>
+        <Button fx:id="stopButton"
+                maxHeight="${newProjectGridPanel.height}"
+                maxWidth="${newProjectGridPanel.width}"
+                onAction="#handleStop"
+                text="Stop"
+                visible="false"
+                GridPane.rowIndex="8"/>
+    </GridPane>
+    <fx:include source="left-bottom-pane.fxml" fx:id="leftBottomPane"/>
+</SplitPane>

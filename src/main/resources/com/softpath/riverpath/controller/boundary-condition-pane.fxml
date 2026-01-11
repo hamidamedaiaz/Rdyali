@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.*?>
+<?import com.softpath.riverpath.custom.pane.BoundaryTitledPane?>
+
+<BoundaryTitledPane xmlns:fx="http://javafx.com/fxml/1" fx:id="boundaryConditionPane"
+                    xmlns="http://javafx.com/javafx/21"
+                    fx:controller="com.softpath.riverpath.controller.BoundaryConditionController"
+                    stylesheets="@style.css">
+    <graphic>
+        <Label fx:id="titledName" maxWidth="200"/>
+    </graphic>
+
+    <GridPane>
+        <columnConstraints>
+            <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0"/>
+            <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0"/>
+        </columnConstraints>
+        <rowConstraints>
+            <RowConstraints minHeight="10.0" vgrow="SOMETIMES"/>
+            <RowConstraints minHeight="10.0" vgrow="SOMETIMES"/>
+            <RowConstraints minHeight="10.0" vgrow="SOMETIMES"/>
+            <RowConstraints minHeight="10.0" vgrow="SOMETIMES"/>
+            <RowConstraints minHeight="10.0" vgrow="SOMETIMES"/>
+            <RowConstraints minHeight="10.0" vgrow="SOMETIMES"/> <!-- Ajout d'un espace -->
+            <RowConstraints minHeight="10.0" vgrow="SOMETIMES"/>
+            <RowConstraints minHeight="10.0" vgrow="SOMETIMES"/>
+        </rowConstraints>
+        <Label text="Condition name"/>
+        <TextField fx:id="conditionNameValue" promptText="required" GridPane.columnIndex="1"
+                   onKeyReleased="#checkNotBlank"/>
+        <Label text="Velocity" GridPane.rowIndex="1"/>
+        <HBox fx:id="originHBox" GridPane.columnIndex="1" GridPane.rowIndex="1">
+            <TextField promptText="Vx" fx:id="vxValue" onKeyReleased="#handleKeyReleased"/>
+            <TextField promptText="Vy" fx:id="vyValue" onKeyReleased="#handleKeyReleased"/>
+            <TextField promptText="Vz" fx:id="vzValue" onKeyReleased="#handleKeyReleased"/>
+        </HBox>
+        <Label text="Pressure" GridPane.rowIndex="2"/>
+        <TextField fx:id="pressureValue" GridPane.columnIndex="1" GridPane.rowIndex="2"
+                   onKeyReleased="#handleKeyReleased"/>
+
+        <Label text="Priority" GridPane.rowIndex="3"/>
+        <TextField fx:id="priorityValue" GridPane.columnIndex="1" GridPane.rowIndex="3"
+                   onKeyReleased="#handleKeyReleased"/>
+
+        <GridPane GridPane.columnIndex="1" GridPane.rowIndex="5"> <!-- Modification de l'index de ligne -->
+            <columnConstraints>
+                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0"/>
+            </columnConstraints>
+            <rowConstraints>
+                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES"/>
+            </rowConstraints>
+            <HBox spacing="10" alignment="CENTER">
+                <Button fx:id="validateButton" onAction="#handleValidate" text="Validate" disable="true" styleClass="validation-button"/>
+                <Button fx:id="cancelButton" onAction="#handleCancel" text="Cancel" disable="true" styleClass="cancel-button"/>
+            </HBox>
+        </GridPane>
+    </GridPane>
+</BoundaryTitledPane>

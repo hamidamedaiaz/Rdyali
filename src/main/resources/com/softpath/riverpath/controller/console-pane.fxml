@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Tab?>
+<?import javafx.scene.control.TabPane?>
+<?import org.fxmisc.flowless.VirtualizedScrollPane?>
+<?import org.fxmisc.richtext.InlineCssTextArea?>
+<TabPane xmlns:fx="http://javafx.com/fxml/1" fx:id="consolePane" minHeight="100.0" minWidth="100.0"
+         tabClosingPolicy="UNAVAILABLE" xmlns="http://javafx.com/javafx/21"
+         fx:controller="com.softpath.riverpath.controller.ConsolePaneController"
+         stylesheets="@style.css">
+
+    <Tab fx:id="consolTab" text="Console">
+        <VirtualizedScrollPane fx:id="scrollConsole" styleClass="scroll-pane">
+            <content>
+                <InlineCssTextArea fx:id="consoleOutput" editable="false" wrapText="true" styleClass="list-view"/>
+            </content>
+        </VirtualizedScrollPane>
+    </Tab>
+</TabPane>
+
+

@@ -1,0 +1,51 @@
+<configuration>
+
+    <!-- ========================= -->
+    <!-- Variables et paramètres -->
+    <!-- ========================= -->
+    <!-- APP_DATA : path to AppData/local with fallback to actual usual path definition on windows. We also assume the env variable USERPROFIL always exists-->
+    <!-- LOG_DIR : chemin du répertoire de logs, ./logs par défaut -->
+    <property name="APP_DATA" value="${LOCALAPPDATA:-${USERPROFILE}/AppData/local}"/>
+    <property name="LOG_DIR" value="${APP_DATA}/Riverpath/logs"/>
+    <!-- ========================= -->
+    <!-- Console Appender -->
+    <!-- ========================= -->
+    <appender name="CONSOLE" class="ch.qos.logback.core.ConsoleAppender">
+        <encoder>
+            <pattern>%d{HH:mm:ss.SSS} [%thread] %-5level %logger{36} - %msg%n</pattern>
+        </encoder>
+    </appender>
+
+    <!-- ========================= -->
+    <!-- File Appender avec rotation -->
+    <!-- ========================= -->
+    <appender name="FILE" class="ch.qos.logback.core.rolling.RollingFileAppender">
+        <!-- Fichier principal -->
+        <file>${LOG_DIR}/app.log</file>
+
+        <!-- Politique de rotation -->
+        <rollingPolicy class="ch.qos.logback.core.rolling.SizeAndTimeBasedRollingPolicy">
+            <!-- Nom des fichiers archivés -->
+            <fileNamePattern>${LOG_DIR}/app-%d{yyyy-MM-dd}.%i.log</fileNamePattern>
+            <!-- Taille maximale d’un fichier avant rotation -->
+            <maxFileSize>10MB</maxFileSize>
+            <!-- Nombre de fichiers archivés conservés -->
+            <maxHistory>30</maxHistory>
+            <!-- Taille totale maximale de tous les fichiers -->
+            <totalSizeCap>1GB</totalSizeCap>
+        </rollingPolicy>
+
+        <!-- Format du contenu -->
+        <encoder>
+            <pattern>%d{yyyy-MM-dd HH:mm:ss.SSS} [%thread] %-5level %logger{36} - %msg%n</pattern>
+        </encoder>
+    </appender>
+
+    <!-- ========================= -->
+    <!-- Loggers et niveau global -->
+    <!-- ========================= -->
+    <root level="INFO">
+        <appender-ref ref="CONSOLE"/>
+        <appender-ref ref="FILE"/>
+    </root>
+</configuration>

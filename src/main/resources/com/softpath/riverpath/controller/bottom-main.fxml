@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ProgressBar?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.StackPane?>
+<?import javafx.scene.text.Font?>
+<HBox xmlns:fx="http://javafx.com/fxml/1" fx:id="bottomMain" spacing="1200.0" xmlns="http://javafx.com/javafx/21"
+      fx:controller="com.softpath.riverpath.controller.BottomMainController"
+      stylesheets="@style.css">
+    <Label alignment="BOTTOM_LEFT" contentDisplay="LEFT" graphicTextGap="18.0" prefHeight="17.0"
+           prefWidth="80.0" text="CimCFD" textOverrun="CENTER_WORD_ELLIPSIS" styleClass="bottom-left-label">
+        <font>
+            <Font name="Arial Bold" size="14.0"/>
+        </font>
+        <opaqueInsets>
+            <Insets/>
+        </opaqueInsets>
+        <HBox.margin>
+            <Insets left="5" bottom="2"/>
+        </HBox.margin>
+    </Label>
+
+    <StackPane>
+        <!-- ProgressBar -->
+        <ProgressBar fx:id="progressBar" visible="false" HBox.hgrow="ALWAYS">
+            <HBox.margin>
+                <Insets/>
+            </HBox.margin>
+        </ProgressBar>
+
+        <!-- Percentage Label -->
+        <Label fx:id="percentageLabel" visible="false"/>
+    </StackPane>
+</HBox>

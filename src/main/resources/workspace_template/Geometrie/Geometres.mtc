@@ -1,0 +1,7 @@
+{ Geometres=
+    { Type= ModeleDeModeles }
+      { Dependance= 
+      { Maillage= MaillagePrincipal }
+        { Modele= GeometresE }    
+      }
+}

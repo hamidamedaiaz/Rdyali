@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.softpath.riverpath.custom.pane.BoundaryTitledPane?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<BoundaryTitledPane xmlns:fx="http://javafx.com/fxml/1"
+                    fx:id="titledPane"
+                    xmlns="http://javafx.com/javafx/21"
+                    fx:controller="com.softpath.riverpath.controller.BoundaryDefinitionController"
+                    stylesheets="@style.css">
+    <graphic>
+        <HBox spacing="10" prefWidth="300" maxWidth="300" alignment="TOP_RIGHT">
+            <!-- Set a maximum width for the Label to prevent it from growing indefinitely -->
+            <Label fx:id="titledName" maxWidth="200" />
+
+            <!-- Use a Region to push the Button to the right -->
+            <Region HBox.hgrow="ALWAYS" />
+
+            <!-- Button stays at the far right -->
+            <Button fx:id="removeButton" text="X" onAction="#handleRemove" styleClass="close-button"/>
+        </HBox>
+    </graphic>
+
+    <GridPane>
+        <columnConstraints>
+            <ColumnConstraints hgrow="SOMETIMES" prefWidth="140.0" maxWidth="140.0"/>
+            <ColumnConstraints hgrow="SOMETIMES" prefWidth="100.0" />
+        </columnConstraints>
+        <rowConstraints>
+            <RowConstraints minHeight="10.0" vgrow="SOMETIMES" />
+            <RowConstraints minHeight="10.0" vgrow="SOMETIMES" />
+            <RowConstraints minHeight="10.0" vgrow="SOMETIMES" />
+            <RowConstraints minHeight="10.0" vgrow="SOMETIMES" />
+            <RowConstraints minHeight="10.0" vgrow="SOMETIMES" />
+            <RowConstraints minHeight="10.0" vgrow="SOMETIMES" />
+            <RowConstraints minHeight="10.0" vgrow="SOMETIMES" />
+        </rowConstraints>
+
+        <!-- Boundary name -->
+        <Label text="Name" />
+        <TextField fx:id="nameValue" promptText="required" GridPane.columnIndex="1" onKeyReleased="#checkNotBlank"/>
+
+        <!-- Boundary type as comboBox -->
+        <Label text="Type" GridPane.rowIndex="1" />
+        <ComboBox fx:id="comboBox" promptText="select type" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+
+        <!-- The origin -->
+        <Label text="Origin" GridPane.rowIndex="2" />
+        <HBox fx:id="originHBox" GridPane.columnIndex="1" GridPane.rowIndex="2">
+            <TextField fx:id="originX" promptText="x" onKeyReleased="#handleKeyReleased"/>
+            <TextField fx:id="originY" promptText="y" onKeyReleased="#handleKeyReleased"/>
+            <TextField fx:id="originZ" promptText="z" onKeyReleased="#handleKeyReleased"/>
+        </HBox>
+
+        <!-- Placeholder for dynamic fields -->
+        <VBox fx:id="dynamicShapeContainer" GridPane.columnSpan="2" GridPane.rowIndex="3" />
+
+        <Pane fx:id="validatePane" managed="false" visible="false" GridPane.columnIndex="1" GridPane.rowIndex="7">
+            <HBox spacing="10" alignment="CENTER">
+                <Button fx:id="validateButton" onAction="#handleValidate" text="Validate" disable="true" styleClass="validation-button"/>
+                <Button fx:id="cancelButton" onAction="#handleCancel" text="Cancel" disable="true" styleClass="cancel-button"/>
+            </HBox>
+        </Pane>
+    </GridPane>
+</BoundaryTitledPane>

@@ -1,0 +1,79 @@
+{ Sorties=
+    { Type= ModeleSortie }
+    { Data= 
+		{ Champ= 
+			{ Type= P0C_Scalaire_Par }
+			{ Nom= FrequenceStockage_vtk }
+			{ Data= ValeurItem 1 5 }                        
+		}
+        { NomFichier: Dimension/resultats.txt } 
+        { NomFrequence= FrequenceStockage_vtk }
+        { NomCompteur= CompteurTemps }
+        { TypeFichier= SortieVtu }
+    }
+    { Dependance= 
+        { Maillage= MaillagePrincipal }
+        { Champ= CompteurTemps }
+    }
+    { DependanceAEcrire= 
+       { Maillage= MaillagePrincipal }	 	 
+       { Champ= ErrReg } 
+       { Champ= Temps } 
+       { Champ= CompteurTemps } 
+	   { Champ= Erreur }
+	   { Champ= Vitesse }
+	   { Champ= Pression }
+	   { Champ= UneFonction }
+	   { Champ= BordNoeud }
+	   { Champ= normeUnVecteur }
+	   { Champ= UnVecteur }
+	   { Champ= AppartientEntree1 }
+	   { Champ= AppartientEntree2 }
+	   { Champ= AppartientEntree3 }
+	   { Champ= AppartientEntree4 }
+	   { Champ= AppartientEntree5 }
+	   { Champ= AppartientEntree6 }
+	   { Champ= AppartientEntree7 }
+	   { Champ= Alpha }
+    }
+}
+
+{ SortiesMTC=
+    { Type= ModeleSortie }
+    { Data= 
+		{ Champ= 
+            { Type= P0C_Scalaire_Par }
+            { Nom= FrequenceStockage_mtc }
+            { Data= ValeurItem 1 1 }                        
+		}
+        { NomFichier: Dimension/resultats.txt } 
+        { NomFrequence= FrequenceStockage_mtc }
+        { NomCompteur= CompteurTemps }
+        { TypeFichier= SortieMtc }
+    }
+    { Dependance= 
+        { Maillage= MaillagePrincipal }
+        { Champ= CompteurTemps }
+    }
+    { DependanceAEcrire= 
+       { Maillage= MaillagePrincipal }	 	 
+    }
+}
+
+{ Reprendre=
+	{ Type= ModeleReprise }
+	{ Data=
+        { NomFichier: Dimension/resultats.txt } 
+        { TypeFichier= EntreeVtu }
+        { Actif= 0 }
+        { AutoRestart= 0  }
+	}
+    { Dependance= 
+        { Maillage= MaillagePrincipal }
+    }
+	{ DependanceALire= 
+	    { Maillage= MaillagePrincipal }	 	 
+     	   { Champ= Temps } 
+    	   { Champ=  CompteurTemps } 
+	}
+}

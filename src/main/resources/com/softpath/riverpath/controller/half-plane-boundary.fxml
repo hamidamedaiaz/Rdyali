@@ -1,0 +1,25 @@
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.layout.HBox?>
+<GridPane fx:id="shapeGridpane"
+          xmlns:fx="http://javafx.com/fxml"
+          fx:controller="com.softpath.riverpath.controller.HalfPlaneBoundaryController"
+          stylesheets="@style.css">
+
+    <columnConstraints>
+        <ColumnConstraints hgrow="SOMETIMES" prefWidth="140.0" maxWidth="140.0"/>
+        <ColumnConstraints hgrow="SOMETIMES" prefWidth="100.0"/>
+    </columnConstraints>
+    <rowConstraints>
+        <RowConstraints minHeight="10.0" vgrow="SOMETIMES"/>
+    </rowConstraints>
+
+    <Label fx:id="normalLabel" text="Normal Vector" GridPane.rowIndex="0"/>
+    <HBox GridPane.columnIndex="1" GridPane.rowIndex="0">
+        <TextField fx:id="normalX" promptText="X" onKeyReleased="#handleKeyReleased"/>
+        <TextField fx:id="normalY" promptText="Y" onKeyReleased="#handleKeyReleased"/>
+    </HBox>
+</GridPane>

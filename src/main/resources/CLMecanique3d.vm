@@ -1,0 +1,26 @@
+{ CLMecanique=
+    { Type= ModeleCLSurGeometres }
+    { Data=
+    { Entite= NOEUDS }
+        $conditions
+        { ConditionLimite=
+            { Nom= Entree }
+            { Type= CLDirichlet }
+            { Appartient= BordNoeud }
+            { NbChamps= 4 }
+            { Degres= Un Un Un Zero }
+            { Valeurs= Zero Zero Zero Zero }
+            { Priorite= 0 }
+        }
+    }
+    { Precision= PrecisionFrontieres }
+    { Dependance=
+        { Maillage= MaillagePrincipal }
+        $appartient
+        { Champ= BordNoeud }
+        { Champ= PrecisionFrontieres }
+        { Champ= Un }
+        { Champ= Zero }
+    }
+}
+

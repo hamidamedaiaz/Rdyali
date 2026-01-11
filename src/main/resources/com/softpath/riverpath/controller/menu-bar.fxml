@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.image.Image?>
+
+<VBox fx:id="topBar" styleClass="top-bar" xmlns:fx="http://javafx.com/fxml"
+      fx:controller="com.softpath.riverpath.controller.MenuBarController"
+      onMousePressed="#handleMousePressed"
+      onMouseDragged="#handleMouseDragged"
+      onMouseReleased="#handleMouseReleased">
+
+    <HBox alignment="CENTER_LEFT" spacing="10" styleClass="title-bar"
+          onMousePressed="#handleMousePressed"
+          onMouseDragged="#handleMouseDragged">
+
+        <ImageView fitHeight="30" fitWidth="30" preserveRatio="true">
+            <Image url="@../../../../images/softpathcfd_logo-2.png"/>
+        </ImageView>
+
+        <MenuBar styleClass="custom-menu-bar">
+            <Menu text="File">
+                <MenuItem text="New Project" onAction="#handleNewProject"/>
+                <MenuItem text="Import Project" onAction="#handleImportProject"/>
+                <MenuItem text="Save changes" onAction="#handleSaveProjectChanges"/>
+                <MenuItem text="Close" onAction="#handleClose"/>
+            </Menu>
+            <Menu text="Edit">
+                <MenuItem text="Delete"/>
+            </Menu>
+            <Menu text="Help">
+                <MenuItem text="About"/>
+            </Menu>
+        </MenuBar>
+
+        <Region HBox.hgrow="ALWAYS" />
+
+        <Button fx:id="minimizeButton" mnemonicParsing="false" text="&#xE921;" onAction="#handleMinimize" styleClass="window-button"/>
+        <Button fx:id="maximizeButton" mnemonicParsing="false" text="&#xE922;" onAction="#handleMaximize" styleClass="window-button"/>
+        <Button fx:id="closeButton" mnemonicParsing="false" text="&#xE8BB;" onAction="#handleClose" styleClass="window-button"/>
+    </HBox>
+</VBox>

@@ -1,0 +1,117 @@
+start_block_definition
+
+        { Modele= DefinitionP$id }
+        { Modele= GeoP$id }
+        { Modele= DistanceP$id }
+
+end_block_definition
+
+start_block_value
+
+{ DefinitionP$id=
+    { Type= ModeleDeMouvements }
+    { Data=
+        { Repere=
+            { Dimension= 2 }
+            { Nom= Entree$id }
+            { Origine= $ox $oy }
+            { $AxeOrNormal= $coordinates}
+        }
+    }
+    { Dependance=
+        { Maillage= MaillagePrincipal }
+    }
+}
+
+{ GeoP$id=
+    { Type= ModeleDeGeometres }
+    { Data=
+        { Geometre=
+            { Nom= MUR$id }
+            { Type= GeometreAnalytique }
+            { Data=
+$geoDataValue
+            }
+        }
+    }
+    { Dependance=
+        { Maillage= MaillagePrincipal }
+        { Modele= DefinitionP$id }
+    }
+}
+
+{ DistanceP$id=
+    { Type= ModeleParticulaire }
+    { Data=
+        { Champ=
+            { Type= P1_Scalaire_Par }
+            { Nom= LevelSetEntree$id }
+            { Data= ValeurItem 1 0.0 }
+        }
+        { Champ=
+            { Type= P1_Scalaire_Par }
+            { Nom= AppartientEntree$id }
+            { Data= ValeurItem 1 0.0 }
+        }
+        { ItemSolveur=
+            { Type= ISGeometre }
+            { NbChampSolution= 2 }
+            { ChampSolution= AppartientEntree$id LevelSetEntree$id }
+            { NbChampParametre= 2 }
+            { ChampParametre= Coordonnees PrecisionFrontieres }
+            { Geometre= MUR$id }
+            { Distance= 1 }
+            { Appartient= 1 }
+        }
+    }
+    { Dependance=
+        { Maillage= MaillagePrincipal }
+        { Champ= Coordonnees }
+        { Champ= PrecisionFrontieres }
+    }
+}
+
+end_block_value
+
+start_block_condition
+        { ConditionLimite=
+            { Nom= Entree$id }
+            { Type= CLDirichlet }
+            { Appartient= AppartientEntree$id }
+            { NbChamps= 3 }
+            { Degres= $degx $degy $pressureGiven }
+            { Valeurs= $vx $vy $pressureValue }
+            { Priorite= ${priority} }
+        }
+end_block_condition
+
+start_block_geometre_boundary_data
+                { Forme=
+                    { Dimension= 2 }
+                    { Type= $murType }
+                }
+                { Repere= Entree$id }
+end_block_geometre_boundary_data
+
+start_block_geometre_object_data
+                { Forme=
+                    { Type= FormeNewMaillageBis }
+                    { Data=
+                        { M: $immersionFile }
+                        { Localisation=
+                            { Brique= Boite }
+                            { Methode= Lineaire }
+                            { TailleMax= 512 }
+                        }
+                    }
+                }
+                { Repere= Entree$id }
+end_block_geometre_object_data
+
+start_block_appartient_data
+            { Champ= AppartientEntree$id }
+end_block_appartient_data
+
+start_block_level_set_data
+            { Champ= LevelSetEntree$id }
+end_block_level_set_data

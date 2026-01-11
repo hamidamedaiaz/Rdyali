@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+
+<?import com.softpath.riverpath.custom.pane.ZoomableScrollPane?>
+<ZoomableScrollPane xmlns:fx="http://javafx.com/fxml" fx:id="scrollablePane"
+                    fx:controller="com.softpath.riverpath.controller.MeshDisplayController"
+                    stylesheets="@style.css">
+</ZoomableScrollPane>

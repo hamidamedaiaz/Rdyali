@@ -1,0 +1,58 @@
+{ GeometresE=
+    { Type= ModeleDeModeles }
+      { Dependance= 
+        { Maillage= MaillagePrincipal }
+   
+        { Modele= GeoBord }
+
+        $definition
+        { Modele= CalculAlpha }
+    }
+}
+
+{ GeoBord=
+    { Type= ModeleDeGeometres }
+    { Data=
+        { Geometre= 
+            { Type= GeometreChamp }
+            { Data=
+                { Champ= BordNoeud }
+                { ValeurSeuilMin= 0.999999 }
+                { ValeurSeuilMax= 1.000001 }
+            }
+        }
+    }
+    { Dependance=
+        { Maillage= MaillagePrincipal }
+    }
+}
+
+$values
+
+{ CalculAlpha=
+    { Type= ModeleParticulaire }
+    { Data=
+        { Champ=
+            { Type= P1_Scalaire_Par }
+            { Nom= Alpha }
+            { Data= ValeurItem 1 0.0 }
+        }
+        { ItemSolveur=
+            { Type= ISfonctionTC }
+            { Passe= 9 }
+            { NbChampSolution= 1 }
+            { ChampSolution= Alpha }
+            { NbChampParametre= 3 }
+            { ChampParametre= LevelSetEntree$immersedObjectId Lmin Lmax }
+        }
+    }
+    { DependanceModifiable=
+        { Champ= Alpha }
+    }
+    { Dependance=
+        { Maillage= MaillagePrincipal }
+        { Champ= LevelSetEntree$immersedObjectId }
+        { Champ= Lmax }
+        { Champ= Lmin }
+    }
+}

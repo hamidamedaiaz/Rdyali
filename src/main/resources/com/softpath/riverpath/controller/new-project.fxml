@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.SplitPane?>
+<?import javafx.scene.layout.BorderPane?>
+<BorderPane xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/21"
+            fx:controller="com.softpath.riverpath.controller.MainController"
+            stylesheets="@style.css">
+    <top>
+        <fx:include source="menu-bar.fxml" fx:id="menuBar"/>
+    </top>
+    <center>
+        <SplitPane dividerPositions="0.5" prefHeight="160.0" prefWidth="200.0" BorderPane.alignment="CENTER">
+            <items>
+                <fx:include source="project-setup-menu.fxml" fx:id="projectSetup"/>
+                <fx:include source="right-pane.fxml" fx:id="rightPane"/>
+            </items>
+        </SplitPane>
+    </center>
+    <bottom>
+        <fx:include source="bottom-main.fxml" fx:id="bottomMain"/>
+    </bottom>
+</BorderPane>

@@ -1,0 +1,94 @@
+{ CLMecanique=
+    { Type= ModeleCLSurGeometres }
+    { Data=
+        { Entite= NOEUDS }
+		{ ConditionLimite=
+            { Nom= Entree7 }
+            { Type= CLDirichlet }
+            { Appartient= AppartientEntree7 }
+            { NbChamps= 4 }
+		    { Degres= Un Un Un Zero }
+		    { Valeurs= Zero Zero Zero Zero }  
+            { Priorite= 3 }  
+        } 
+		{ ConditionLimite=
+            { Nom= Entree1 }
+            { Type= CLDirichlet }
+            { Appartient= AppartientEntree1 }
+            { NbChamps= 4 }
+		    { Degres=  Un Un Un Zero }
+		    { Valeurs= Un Zero Zero Zero } 
+            { Priorite= 3 } 
+        }
+		{ ConditionLimite=
+            { Nom= Entree3 }
+            { Type= CLDirichlet }
+            { Appartient= AppartientEntree3 }
+            { NbChamps= 4 }
+		    { Degres= Zero Zero Un Zero }
+		    { Valeurs= Zero Zero Zero Zero } 
+            { Priorite= 2 }   
+        } 
+		{ ConditionLimite=
+            { Nom= Entree4 }
+            { Type= CLDirichlet }
+            { Appartient= AppartientEntree4 }
+            { NbChamps= 4 }
+		    { Degres= Zero Zero Un Zero }
+		    { Valeurs= Zero Zero Zero Zero } 
+            { Priorite= 2 }  
+        } 
+		{ ConditionLimite=
+            { Nom= Entree5 }
+            { Type= CLDirichlet }
+            { Appartient= AppartientEntree5 }
+            { NbChamps= 4 }
+		    { Degres= Zero Un Zero Zero }
+		    { Valeurs= Zero Zero Zero Zero } 
+            { Priorite= 2 }   
+        } 
+		{ ConditionLimite=
+            { Nom= Entree6 }
+            { Type= CLDirichlet }
+            { Appartient= AppartientEntree6 }
+            { NbChamps= 4 }
+		    { Degres= Zero Un Zero Zero }
+		    { Valeurs= Zero Zero Zero Zero }  
+            { Priorite= 2 }  
+        } 
+		{ ConditionLimite=
+            { Nom= Entree2 }
+            { Type= CLDirichlet }
+            { Appartient= AppartientEntree2 }
+            { NbChamps= 4 }
+		    { Degres=  Zero Zero Zero Un }
+		    { Valeurs= Zero Zero Zero Zero } 
+            { Priorite= 1 } 
+        }
+        { ConditionLimite=
+            { Nom= Entree }
+            { Type= CLDirichlet }
+            { Appartient= BordNoeud }
+            { NbChamps= 4 }
+		    { Degres= Un Un Un Zero }
+		    { Valeurs= Zero Zero Zero Zero } 
+            { Priorite= 0 }   
+        }
+    }  
+	{ Precision= PrecisionFrontieres }
+    { Dependance=
+        { Maillage= MaillagePrincipal }
+       	    { Champ= AppartientEntree5 }
+		 	{ Champ= AppartientEntree1 }
+			{ Champ= AppartientEntree2 }
+			{ Champ= AppartientEntree3 }
+            { Champ= AppartientEntree4 }
+            { Champ= AppartientEntree5 }
+            { Champ= AppartientEntree6 }
+            { Champ= AppartientEntree7 }
+			{ Champ= BordNoeud }
+			{ Champ= PrecisionFrontieres }
+			{ Champ= Un }
+			{ Champ= Zero }			
+    }
+}

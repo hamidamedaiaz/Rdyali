@@ -1,0 +1,25 @@
+<?import javafx.scene.control.Hyperlink?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.RowConstraints?>
+<GridPane fx:id="shapeGridpane"
+          xmlns:fx="http://javafx.com/fxml/1"
+          fx:controller="com.softpath.riverpath.controller.ImmersedBoundaryController"
+          stylesheets="@style.css">
+
+    <columnConstraints>
+        <ColumnConstraints hgrow="SOMETIMES" prefWidth="140.0" maxWidth="140.0"/>
+        <ColumnConstraints hgrow="SOMETIMES" prefWidth="100.0"/>
+    </columnConstraints>
+    <rowConstraints>
+        <RowConstraints minHeight="10.0" vgrow="SOMETIMES"/>
+        <RowConstraints minHeight="10.0" vgrow="SOMETIMES"/>
+    </rowConstraints>
+
+    <Label fx:id="objectFileName" text="Object File" GridPane.rowIndex="0"/>
+    <Hyperlink text="Import file" fx:id="importObject" onAction="#importImmersedObject"
+               GridPane.columnIndex="1" GridPane.rowIndex="0"
+               style="-fx-font-size: 10px; -fx-border-color: blue; -fx-border-width: 1px; -fx-border-style: solid;"
+               GridPane.halignment="CENTER" underline="true" textFill="blue"/>
+</GridPane>

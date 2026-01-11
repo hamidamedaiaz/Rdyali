@@ -1,0 +1,22 @@
+{ Target= Prompt 0 }
+{ Target= Prompteur 120000 }
+
+{ Target= PasDeTemps $timeStep }
+
+{ Target= TempsFin $totalTime }
+{ Target= FrequenceStockage_vtk $storageFrequency }
+
+{ Target= Eta1  $viscosity }
+{ Target= Rho1  $density }
+
+*****************************************************
+
+{ Target= NbElements ${nbElements} }
+{ Target= hMin ${hMin} }
+{ Target= Lmax ${lMax} }
+{ Target= Nscaling ${nScaling} }
+{ Target= ScaleNorme ${scaleNorme} }
+{ Target= Err1 ${err1} }
+{ Target= Err2 ${err2} }
+{ Target= Adaptateur ${adaptateur} }
+{ Target= Lmin ${lMin} }

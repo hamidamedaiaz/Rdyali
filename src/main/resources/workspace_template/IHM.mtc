@@ -1,0 +1,22 @@
+{ Target= Prompt 0 }
+{ Target= Prompteur 120000 }
+
+{ Target= PasDeTemps 0.01 } 
+     
+{ Target= TempsFin 10 }
+{ Target= FrequenceStockage_vtk 10 } 
+
+{ Target= Eta1  0.001 }
+{ Target= Rho1  1 } 
+
+*****************************************************
+
+{ Target= NbElements 400000 }   
+{ Target= hMin 0.01 }
+{ Target= Nscaling 1 }
+{ Target= ScaleNorme 1 }
+{ Target= Err1 1 }  
+{ Target= Err2 1 }
+{ Target= Adaptateur 5 } 
+{ Target= Lmax 0.03 } 
+{ Target= Lmin 0 } 
